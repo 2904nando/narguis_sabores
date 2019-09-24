@@ -5,11 +5,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "essencias"
+    return render_template("index.html", essencias=essencias)
 
 @app.route('/misturas')
 def misturas():
-    return 'misturas'
+    return render_template("misturas.html", misturas=misturas)
 
 if __name__ == "__main__":
     app.run(debug=True)
