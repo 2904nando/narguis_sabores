@@ -1,0 +1,19 @@
+{% extends "shared.html" %}
+{% block title %}Criador de Essências{% endblock %}
+
+{% block body %}
+
+<h1>Adicionar nova Essência</h1>
+
+<form class="" action="/criar_essencia" method="post">
+  <input type="text" name="nome" placeholder="Nome"><br>
+  <input type="text" name="marca" placeholder="Marca"><br>
+  <input type="text" name="desc" placeholder="Descrição"><br>
+  <input type="number" name="preco" placeholder="Preço"><br>
+  <input type="text" name="foto" placeholder="Foto"><br>
+  <input type="number" name="qtd" placeholder="Quantidade no Pacote"><br>
+  <input type="text" name="categoria" placeholder="Categoria"><br>
+  <input type="submit" name="" value="">
+</form>
+
+{% endblock %}

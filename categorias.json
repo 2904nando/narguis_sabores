@@ -1,0 +1,12 @@
+{
+  "categorias": {
+    "doce": {
+      "nome": "Doce",
+      "descricao": "Essências adocicadas e geralmente quentes."
+    },
+    "gelada": {
+      "nome": "Gelada",
+      "descricao": "Essências geladas e refrescantes."
+    }
+  }
+}
