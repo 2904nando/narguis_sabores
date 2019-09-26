@@ -22,5 +22,3 @@ def criarEssencia(nome, marca, desc, preco_medio, foto, qtd_pacote, categoria):
     file_essencias.seek(0)
     file_essencias.truncate()
     json.dump(essencias, file_essencias, ensure_ascii=False)
-
-#criarEssencia("Strawberry Creamy", "Zomo", "Essência com sabor de morango com Chantily.", 12.5, "zomo_strawberry_creamy", 50, [procurarCategoria('doce')])

@@ -1,5 +1,6 @@
 from sincronizarBD import categorias, essencias, misturas
 from flask import Flask, render_template, redirect, url_for, request
+import db_actions
 
 import criadorEssencia
 
@@ -7,6 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    essencias = db_actions.getAllEssencias()
     return render_template("index.html", essencias=essencias)
 
 @app.route('/misturas')
