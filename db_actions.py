@@ -24,6 +24,25 @@ def getAllEssencias():
     """)
     return cursor.fetchall()
 
+def getAllEssenciasSimple():
+    connection = db_connection.connection
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT
+            essencia.nm_essencia,
+            essencia.ds_marca,
+            essencia.ds_foto,
+            array_agg(categoria.nm_categoria),
+            array_agg(categoria.ds_descricao)
+        FROM essencia
+            INNER JOIN essencia_categoria ON essencia_categoria.cd_essencia = essencia.cd_essencia
+            INNER JOIN categoria ON essencia_categoria.cd_categoria = categoria.cd_categoria
+        GROUP BY essencia.cd_essencia
+        ORDER BY ds_marca;
+        """)
+    return cursor.fetchall()
+
 def getAllMisturas():
     connection = db_connection.connection
     cursor = connection.cursor()

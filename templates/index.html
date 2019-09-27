@@ -5,16 +5,13 @@
 
 {% for essencia in essencias %}
 
-<p><b>Nome:</b> {{ essencia.1 }}</p>
-<p><b>Marca:</b> {{ essencia.2 }}</p>
-<p><b>Preço médio:</b> {{ essencia.3 }}</p>
-<p><b>Descrição:</b> {{ essencia.4 }}</p>
-<p><b>Foto:</b> {{ essencia.5 }}</p>
-<p><b>Quantidade Pacote (g):</b> {{ essencia.6 }}</p>
+<p><b>Nome:</b> {{ essencia.0 }}</p>
+<p><b>Marca:</b> {{ essencia.1 }}</p>
+<p><b>Foto:</b> {{ essencia.2 }}</p>
 <p><b>Categorias:</b></p>
 <ul>
-  {% for categoria in essencia.7 %}
-    <li>{{ categoria }} - ({{ essencia[8][loop.index0] }})</li>
+  {% for categoria in essencia.3 %}
+    <li>{{ categoria }} - ({{ essencia[4][loop.index0] }})</li>
   {% endfor %}
 </ul>
 

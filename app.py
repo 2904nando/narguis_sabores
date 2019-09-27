@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    essencias = db_actions.getAllEssencias()
+    essencias = db_actions.getAllEssenciasSimple()
     return render_template("index.html", essencias=essencias)
 
 @app.route('/misturas')
