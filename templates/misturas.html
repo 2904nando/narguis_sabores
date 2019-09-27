@@ -3,4 +3,21 @@
 
 {% block body %}
 
+{% for mistura in misturas %}
+
+<p><b>Nome:</b> {{ mistura.0 }}</p>
+<p><b>Descrição:</b> {{ mistura.1 }}</p>
+<ul>
+  <li>{{ mistura.4 }}% - ({{ mistura.3 }} {{ mistura.2 }})</li>
+  <li>{{ mistura.7 }}% - ({{ mistura.6 }} {{ mistura.5 }})</li>
+</ul>
+<p><b>Categorias:</b></p>
+<ul>
+  {% for categoria in mistura.8 %}
+    <li>{{ categoria }} - ({{ mistura[9][loop.index0] }})</li>
+  {% endfor %}
+</ul>
+
+{% endfor %}
+
 {% endblock %}

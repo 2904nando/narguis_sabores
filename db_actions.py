@@ -71,6 +71,32 @@ def getAllMisturas():
     """)
     return cursor.fetchall()
 
+def getAllMisturasSimple():
+    connection = db_connection.connection
+    cursor = connection.cursor()
+
+    cursor.execute("""
+        SELECT 
+            mistura.nm_mistura,
+            mistura.ds_mistura,
+            es1.nm_essencia,
+            es1.ds_marca,
+            mistura.nr_porcentagem_1,
+            es2.nm_essencia,
+            es2.ds_marca,
+            mistura.nr_porcentagem_2,
+            array_agg(categoria.nm_categoria),
+            array_agg(categoria.ds_descricao)
+        FROM mistura
+            INNER JOIN mistura_categoria ON mistura_categoria.cd_mistura = mistura.cd_mistura
+            INNER JOIN categoria ON categoria.cd_categoria = mistura_categoria.cd_categoria
+            INNER JOIN essencia AS es1 ON es1.cd_essencia = mistura.fk_essencia_1
+            INNER JOIN essencia AS es2 ON es2.cd_essencia = mistura.fk_essencia_2
+        GROUP BY (mistura.cd_mistura, es1.cd_essencia, es2.cd_essencia)
+        ORDER BY mistura.cd_mistura;
+        """)
+    return cursor.fetchall()
+
 def getEssenciaByCode(codigo):
     connection = db_connection.connection
     cursor = connection.cursor()

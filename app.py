@@ -13,6 +13,7 @@ def index():
 
 @app.route('/misturas')
 def misturas():
+    misturas = db_actions.getAllMisturasSimple()
     return render_template("misturas.html", misturas=misturas)
 
 @app.route('/form_criar_essencias')
