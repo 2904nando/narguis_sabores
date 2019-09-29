@@ -34,7 +34,8 @@ def getAllEssenciasSimple():
             essencia.ds_marca,
             essencia.ds_foto,
             array_agg(categoria.nm_categoria),
-            array_agg(categoria.ds_descricao)
+            array_agg(categoria.ds_descricao),
+            essencia.cd_essencia
         FROM essencia
             INNER JOIN essencia_categoria ON essencia_categoria.cd_essencia = essencia.cd_essencia
             INNER JOIN categoria ON essencia_categoria.cd_categoria = categoria.cd_categoria
@@ -54,9 +55,11 @@ def getAllMisturas():
         mistura.ds_mistura,
         es1.cd_essencia essencia_1,
         es1.nm_essencia,
+        es1.ds_foto,
         mistura.nr_porcentagem_1,
         es2.cd_essencia essencia_2,
         es2.nm_essencia,
+        es2.ds_foto,
         mistura.nr_porcentagem_2,
         array_agg(categoria.cd_categoria),
         array_agg(categoria.nm_categoria),
@@ -81,9 +84,11 @@ def getAllMisturasSimple():
             mistura.ds_mistura,
             es1.nm_essencia,
             es1.ds_marca,
+            es1.ds_foto,
             mistura.nr_porcentagem_1,
             es2.nm_essencia,
             es2.ds_marca,
+            es2.ds_foto,
             mistura.nr_porcentagem_2,
             array_agg(categoria.nm_categoria),
             array_agg(categoria.ds_descricao)

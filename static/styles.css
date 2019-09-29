@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.conteudo-wrapper {
+  margin: 20px;
+}
+
+.essencia-wrapper {
+  padding: 10px;
+}
+
+.essencia {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 6px rgba(0,0,0,0.5);
+}
+
+.categoria_doce, .categoria_gelada {
+  width: 80px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.categoria_doce {
+  background-color: #FF94D8;
+}
+
+.categoria_gelada {
+  background-color: #85FFD4;
+}
