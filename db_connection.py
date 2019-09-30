@@ -1,11 +1,31 @@
 import psycopg2
+import os
 
-try:
-    connection = psycopg2.connect(user = "vqntlmgadwynwp",
-                                  password = "4ba9d7a162791ede90a0a267292b6922fdc9ec7aa321a4ff6396d64b736e0603",
-                                  host = "ec2-54-235-163-246.compute-1.amazonaws.com",
-                                  port = "5432",
-                                  database = "da2fg0dip1jn7u")
+isHerokuEnv = os.environ.get('IS_HEROKU', None)
 
-except:
-    print('Erro de conexão com PostgreSQL')
+if isHerokuEnv:
+    try:
+        connection = psycopg2.connect(user = os.environ.get('HEROKU_PSQL_USER'),
+                                      password = os.environ.get('HEROKU_PSQL_PSWD'),
+                                      host = os.environ.get('HEROKU_PSQL_HOST'),
+                                      port = os.environ.get('HEROKU_PSQL_PORT'),
+                                      database = os.environ.get('HEROKU_PSQL_DB'))
+
+    except:
+        print('Erro de conexão com PostgreSQL')
+else:
+    try:
+        import dados_secretos
+
+        try:
+            connection = psycopg2.connect(user=dados_secretos.db_user,
+                                          password=dados_secretos.db_pswd,
+                                          host=dados_secretos.db_host,
+                                          port=dados_secretos.db_port,
+                                          database=dados_secretos.db_db)
+
+        except:
+            print('Erro de conexão com PostgreSQL')
+
+    except:
+        print("Falha dados secretos!")
