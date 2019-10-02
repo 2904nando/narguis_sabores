@@ -91,7 +91,8 @@ def getAllMisturasSimple():
             es2.ds_foto,
             mistura.nr_porcentagem_2,
             array_agg(categoria.nm_categoria),
-            array_agg(categoria.ds_descricao)
+            array_agg(categoria.ds_descricao),
+            mistura.cd_mistura
         FROM mistura
             INNER JOIN mistura_categoria ON mistura_categoria.cd_mistura = mistura.cd_mistura
             INNER JOIN categoria ON categoria.cd_categoria = mistura_categoria.cd_categoria

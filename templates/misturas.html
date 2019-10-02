@@ -3,22 +3,42 @@
 
 {% block body %}
 
-{% for mistura in misturas %}
-
-<p><b>Nome:</b> {{ mistura.0 }}</p>
-<p><b>Descrição:</b> {{ mistura.1 }}</p>
-<ul>
-  <li>{{ mistura.5 }}% - ({{ mistura.3 }}) {{ mistura.2 }}</li>
-  <li>{{ mistura.9 }}% - ({{ mistura.7 }}) {{ mistura.6 }}</li>
-</ul>
-<p><b>Categorias:</b></p>
-<ul>
-  {% for categoria in mistura.10 %}
-    <li>{{ categoria }} - ({{ mistura[11][loop.index0] }})</li>
-  {% endfor %}
-</ul>
-
-{% endfor %}
+<div class="conteudo-wrapper">
+  <div class="row">
+    {% for mistura in misturas %}
+    <div class="mistura-wrapper col-lg-6 col-md-12" onclick="window.location='/mistura/{{ mistura.12 }}';">
+      <div class="mistura">
+        <h1>{{ mistura.0 }}</h1>
+        <div class="row">
+          <div class="es1 col-md-6">
+            <img src="../static/imgs/{{ mistura.4 }}" alt="Foto - {{ mistura.2 }}">
+            <p><b>{{ mistura.5 }}%</b> - {{ mistura.2 }}</p>
+            <p>{{ mistura.3 }}</p>
+          </div>
+          <div class="es2 col-md-6">
+            <img src="../static/imgs/{{ mistura.8 }}" alt="Foto - {{ mistura.6 }}">
+            <p><b>{{ mistura.9 }}%</b> - {{ mistura.6 }}</p>
+            <p>{{ mistura.7 }}</p>
+          </div>
+        </div>
+        <div class="row col-md-10 col-md-offset-2">
+          {% for categoria in mistura.10 %}
+            {% if categoria == 'Doce' %}
+              <div class="categoria_doce">
+                {{ categoria }}
+              </div>
+            {% elif categoria == 'Gelada' %}
+              <div class="categoria_gelada">
+                {{ categoria }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 <script type="text/javascript">
   var botaoNavbarAtual = document.getElementById("navbar-link-misturas")

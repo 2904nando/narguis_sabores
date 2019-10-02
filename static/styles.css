@@ -11,6 +11,10 @@
   padding: 10px;
 }
 
+.mistura-wrapper {
+  padding: 10px;
+}
+
 .essencia {
   text-align: center;
   padding: 10px;
@@ -28,12 +32,30 @@
   box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
 }
 
+.mistura-wrapper:hover {
+  padding: 8px;
+}
+
+.mistura:hover {
+  box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.5);
+}
+
+.mistura {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 6px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
 .categoria_doce, .categoria_gelada {
   width: 80px;
   border: 1px solid black;
   border-radius: 5px;
   text-align: center;
   font-weight: bold;
+  margin: 5px;
 }
 
 .categoria_doce {
